@@ -10,6 +10,10 @@ function init() {
           .text(sample)
           .property("value", sample);
       });
+    // Use the first sample from the list to build the initial plots
+    var firstSample = sampleNames[0];
+    buildCharts(firstSample);
+    buildMetadata(firstSample);
   })}
   
   init();
@@ -27,6 +31,10 @@ function buildMetadata(sample) {
       var PANEL = d3.select("#sample-metadata");
   
       PANEL.html("");
+      // Object.entries(result).forEach(([key, value]) => {
+      //   PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
+      // });
+
       PANEL.append("h6").text(result.location);
     });
   }
